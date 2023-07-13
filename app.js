@@ -15,7 +15,7 @@ var app = express();
 
 // 设置 mongoose 连接
 const mongoose = require('mongoose')
-const mongoDB = 'mongodb://localhost:27017'
+const mongoDB = process.env.MONGODB_URI||'mongodb://localhost:27017'
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = global.Promise
 const db = mongoose.connection
